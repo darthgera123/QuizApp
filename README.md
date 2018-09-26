@@ -1,0 +1,66 @@
+# QuizApp
+The given quizapp has been made in Go and React as part of SSAD assignment in 4 sleepless days. This Readme is a walkthrough off all API endpoints as well as functionalities if any added.
+
+## Setup
+To setup the given project follow the instructions separately for each - 
+
+### React
+     Download the project
+     Run `yarn install` to install all dependencies
+     If no error is encountered then run `yarn start`
+
+### Go
+     Download the project
+     Install the following libraries for it to run - 
+     - "github.com/gin-contrib/cors"    
+     - "github.com/gin-gonic/gin"  
+     -	"github.com/jinzhu/gorm"  
+     -	"github.com/jinzhu/gorm/dialects/sqlite"   
+     -	"golang.org/x/crypto/bcrypt"
+
+     Set your GOPATH and GOBIN variables accordingly. Install packages by run go get -u <name of package>
+
+## API Endpoints
+The following are the Api endpoinst along with what they do  
+### User table
++ GET :`/people/` This sends the set of users
++ POST : `/people`  This creates a new user
++ POST: `/signin/`  This is for login
++ GET : `people/users/:username ` This sends a particular user info
++ DELETE : `/people/:id` This deletes a particular user
+### Quiz/Genre table
++ POST : `/quiz/` This creates a new question
++ GET : `/quiz/`  This sends the set of questions
++ GET : ` /quiz/:qname`  This sends a particular quiz
++ GET : `/quiz/:qname/:question ` This sends ta particular question
++ PUT : `/quiz/:qname/:question` This sends an update on a question
++ DELETE : `/quiz/:genre/:qname/:question` This deletes a qiven question
++ GET : `/genres/` This sends the set of quiz
++ GET : `/all-genres/`  This sends all genres
++ GET : `/genres/:genre` This sends quiz of a particular genre
++ DELETE : `/genres/:qname` This deletes a particular quiz
+### Score table
++ POST : `/score/` This adds a new score
++ PUT : `/score/` Updates a pre-existing score
++ GET : `/score/:username/:genre/:qname` Gets a particular quiz score
++ GET : `/score/` Gets all scores
++ GET : `/score-genre/:genre` Gets a particular genre score
++ GET : `/score-users/:username` Gets Quiz Scores based on username
+
+## Functionalities
+
+### Guest
++ Can Register
++ Can Login
+
+### User
++ Can Play Quiz
++ Can View Quiz Played By It
++ Can View Leaderboard of All Genres
+
+### Admin 
++ Can Create Quiz
++ Can Delete Quiz
++ Can Update/Delete Questions is a Quiz
++ Can View all users and Delete Users
++ Questions can also have images
