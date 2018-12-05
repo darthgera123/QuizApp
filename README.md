@@ -12,13 +12,32 @@ To setup the given project follow the instructions separately for each -
 ### Go
      Download the project
      Install the following libraries for it to run - 
-     - "github.com/gin-contrib/cors"    
+     - "github.com/gin-contrib/cors"
      - "github.com/gin-gonic/gin"  
-     -	"github.com/jinzhu/gorm"  
-     -	"github.com/jinzhu/gorm/dialects/sqlite"   
-     -	"golang.org/x/crypto/bcrypt"
+     - "github.com/jinzhu/gorm"
+     - "github.com/jinzhu/gorm/dialects/sqlite"
+     - "golang.org/x/crypto/bcrypt"
 
-     Set your GOPATH and GOBIN variables accordingly. Install packages by run go get -u <name of package>
+    To set your GOPATH add these lines into ~/.bashrc
+    export GOPATH=$HOME/go
+    export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+    
+    Install packages by run go get -u <name of package>
+
+### Database - 
+The project uses sqlite3 for RDBMS and has teh following tables  
+
+SNo | Table | Brief Description
+--- | --- | ---
+1 | Users | List of Registered Users, alpha is admin
+2 | Quiz | List of question pertaining to a quiz and the answers
+3 | Genres | List of Genres
+4 | QGenres | List of Quiz within each Genre
+5 | Score | List of Scores of each user played
+
+`Alpha` is the admin username
+Password is `sad`. This wasnt hashed while the rest were.
+
 
 ## API Endpoints
 The following are the Api endpoinst along with what they do  

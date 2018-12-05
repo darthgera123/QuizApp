@@ -58,7 +58,7 @@ type Score struct {
 	Score    uint   `json:"score"`
 }
 
-/* This acta as a meta table */
+/* This acts as a meta table */
 type Leaderboard struct {
 	Username string `json:"username"`
 	Total    uint   `json:"total"`
