@@ -14,7 +14,7 @@ var db *gorm.DB
 
 var err error
 
-/* The tables for the code */
+// User stores info about each user
 type User struct {
 	ID       uint   `json:"id"`
 	Username string `json:"username"`
@@ -23,6 +23,7 @@ type User struct {
 	Admin    bool   `json:"admin"`
 }
 
+// Quiz stores infor about questions and the answers
 type Quiz struct {
 	ID       uint   `json:"qid"`
 	Genre    string `json:"genre"`
@@ -39,17 +40,20 @@ type Quiz struct {
 	AnswerD  bool   `json:"answerD"`
 }
 
+// Genre lists all genres available
 type Genres struct {
 	ID    uint   `json:"gid"`
 	Genre string `json:"genre"`
 }
 
+// QGenres stores about all Quizzes within respective Genre
 type QGenres struct {
 	ID    uint   `json:"gid"`
 	Genre string `json:"genre"`
 	Qname string `json:"qname"`
 }
 
+// Score stores information about all played quizes
 type Score struct {
 	ID       uint   `json:"sid"`
 	Username string `json:"username"`
@@ -58,7 +62,7 @@ type Score struct {
 	Score    uint   `json:"score"`
 }
 
-/* This acts as a meta table */
+// Leaderboard acts as a meta table
 type Leaderboard struct {
 	Username string `json:"username"`
 	Total    uint   `json:"total"`
@@ -102,6 +106,7 @@ func main() {
 	r.Run(":8080") // Run on port 8080
 }
 
+// CreatePerson checks if an existing username exists else creates a new person
 func CreatePerson(c *gin.Context) {
 	var user User
 	c.BindJSON(&user)
@@ -129,6 +134,7 @@ func CreatePerson(c *gin.Context) {
 
 }
 
+// GetPeople returns the list of users
 func GetPeople(c *gin.Context) {
 	var people []User
 	if err := db.Find(&people).Error; err != nil {
@@ -140,6 +146,7 @@ func GetPeople(c *gin.Context) {
 	}
 }
 
+// LoginUser logs in the user
 func LoginUser(c *gin.Context) {
 	var user User
 	c.BindJSON(&user)
@@ -161,6 +168,7 @@ func LoginUser(c *gin.Context) {
 	}
 }
 
+// ReturnUser returns a specific user by username
 func ReturnUser(c *gin.Context) {
 	username := c.Params.ByName("username")
 	var user User
@@ -173,6 +181,7 @@ func ReturnUser(c *gin.Context) {
 	}
 }
 
+// GetPerson returns specific user by id
 func GetPerson(c *gin.Context) {
 	id := c.Params.ByName("id")
 	var person User
@@ -185,6 +194,7 @@ func GetPerson(c *gin.Context) {
 	}
 }
 
+// DeletePerson deletes a specific user by id
 func DeletePerson(c *gin.Context) {
 	id := c.Params.ByName("id")
 	var person User
@@ -194,10 +204,10 @@ func DeletePerson(c *gin.Context) {
 	c.JSON(200, gin.H{"id #" + id: "deleted"})
 }
 
+// CreateQuestion creates a new questions and updates relevant tables
 func CreateQuestion(c *gin.Context) {
 	var question Quiz
 	c.BindJSON(&question)
-	fmt.Println(question.AnswerA, question.AnswerB, question.AnswerC, question.AnswerD)
 	db.Create(&question)
 	var genre QGenres
 	var genres Genres
@@ -207,10 +217,11 @@ func CreateQuestion(c *gin.Context) {
 	if db.Where(&QGenres{Genre: question.Genre, Qname: question.Qname}).First(&genre).RecordNotFound() {
 		db.Create(&QGenres{Genre: question.Genre, Qname: question.Qname})
 	}
-	c.Header("access-control-allow-origin", "*") // Why am I doing this? Find out. Try running with this line commented
+	c.Header("access-control-allow-origin", "*")
 	c.JSON(200, question)
 }
 
+// ViewQuestion views the list of all questions
 func ViewQuestion(c *gin.Context) {
 	var quiz []Quiz
 	if err := db.Find(&quiz).Error; err != nil {
@@ -222,6 +233,7 @@ func ViewQuestion(c *gin.Context) {
 	}
 }
 
+// ViewQuiz lists all quiz within a genre
 func ViewQuiz(c *gin.Context) {
 	var genre []QGenres
 	if err := db.Find(&genre).Error; err != nil {
@@ -233,6 +245,7 @@ func ViewQuiz(c *gin.Context) {
 	}
 }
 
+// ViewGenres lists all genres
 func ViewGenres(c *gin.Context) {
 	var genre []Genres
 	if err := db.Find(&genre).Error; err != nil {
@@ -244,6 +257,7 @@ func ViewGenres(c *gin.Context) {
 	}
 }
 
+// DeleteQuiz deletes by quiz name
 func DeleteQuiz(c *gin.Context) {
 	qname := c.Params.ByName("qname")
 	var question Quiz
@@ -261,6 +275,7 @@ func DeleteQuiz(c *gin.Context) {
 	c.JSON(200, gin.H{"qname #" + qname: "deleted"})
 }
 
+// DeleteQuestion deletes question
 func DeleteQuestion(c *gin.Context) {
 	genre := c.Params.ByName("genre")
 	qname := c.Params.ByName("qname")
@@ -282,6 +297,7 @@ func DeleteQuestion(c *gin.Context) {
 
 }
 
+// ShowQuiz shows the list of quizes
 func ShowQuiz(c *gin.Context) {
 	qname := c.Params.ByName("qname")
 	var question []Quiz
@@ -294,6 +310,7 @@ func ShowQuiz(c *gin.Context) {
 	}
 }
 
+// GetQuiz lists all quizzes in a specific genre
 func GetQuiz(c *gin.Context) {
 	genre := c.Params.ByName("genre")
 	var qgenre []QGenres
@@ -306,6 +323,7 @@ func GetQuiz(c *gin.Context) {
 	}
 }
 
+// ShowQuestion shows the questions
 func ShowQuestion(c *gin.Context) {
 	qname := c.Params.ByName("qname")
 	question := c.Params.ByName("question")
@@ -318,6 +336,8 @@ func ShowQuestion(c *gin.Context) {
 		c.JSON(200, quiz)
 	}
 }
+
+// UpdateQuestion is used to update the questions
 func UpdateQuestion(c *gin.Context) {
 	var quiz Quiz
 	qname := c.Params.ByName("qname")
@@ -332,6 +352,7 @@ func UpdateQuestion(c *gin.Context) {
 	c.JSON(200, quiz)
 }
 
+// PostScore adds a new score
 func PostScore(c *gin.Context) {
 	var score Score
 	c.BindJSON(&score)
@@ -340,6 +361,7 @@ func PostScore(c *gin.Context) {
 	c.JSON(200, score)
 }
 
+// UpdateScore updates existing score
 func UpdateScore(c *gin.Context) {
 	var score Score
 	if err := db.Where(&Score{Username: score.Username, Genre: score.Genre, Qname: score.Qname}).First(&score).Error; err != nil {
@@ -352,6 +374,7 @@ func UpdateScore(c *gin.Context) {
 	c.JSON(200, score)
 }
 
+// GetUserScore gets a specific user's score
 func GetUserScore(c *gin.Context) {
 	var score Score
 	user := c.Params.ByName("username")
@@ -367,6 +390,7 @@ func GetUserScore(c *gin.Context) {
 	}
 }
 
+// GetAllScores returns all Scores
 func GetAllScores(c *gin.Context) {
 	var leader []Leaderboard
 	if err := db.Table("scores").Select("username, sum(score) as total").Group("username").Scan(&leader).Error; err != nil {
@@ -378,6 +402,7 @@ func GetAllScores(c *gin.Context) {
 	}
 }
 
+// GetGenreScores returns genre specific scores
 func GetGenreScores(c *gin.Context) {
 	var leader []Leaderboard
 	genre := c.Params.ByName("genre")
@@ -390,6 +415,7 @@ func GetGenreScores(c *gin.Context) {
 	}
 }
 
+// GetUserQuiz returns a specific user's attempted quizzes
 func GetUserQuiz(c *gin.Context) {
 	user := c.Params.ByName("username")
 	var score []Score
@@ -402,11 +428,13 @@ func GetUserQuiz(c *gin.Context) {
 	}
 }
 
+// HashPassword encrypts the passwords
 func HashPassword(password string) (string, error) {
 	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
 	return string(bytes), err
 }
 
+// CheckPasswordHash checks passwords
 func CheckPasswordHash(password, hash string) bool {
 	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
 	return err == nil
