@@ -1,5 +1,5 @@
 # QuizApp
-The given quizapp has been made in Go and React as part of SSAD assignment in 4 sleepless days. This Readme is a walkthrough off all API endpoints as well as functionalities if any added.
+The given quizapp has been made in Go and React. This Readme is a walkthrough off all API endpoints as well as functionalities if any added.
 
 ## Setup
 To setup the given project follow the instructions separately for each - 
