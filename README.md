@@ -10,9 +10,10 @@ To setup the given project follow the instructions separately for each -
      If no error is encountered then run `yarn start`
      
      OR
+     
      If npm is already installed on your system then
-     Run 'npm install' to install all dependencies(if you get some warings then ignore it) 
-     If no error is encountered then run `yarn start` it will start App on local server
+     Run 'npm install' to install all dependencies(if you get some warnings then ignore it) 
+     If no error is encountered then run `npm start` it will start App on local server
      
 ### Go
      Download the project
