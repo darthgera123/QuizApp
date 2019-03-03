@@ -61,10 +61,7 @@ class Home extends Component {
           </div>
         )}
         {!this.state.isLoggedIn && (
-          <div className="App-content">
-              <h1>Welcome to QuizApp</h1>
-              <h3>Create an account for playing the wonderful quizzes</h3>
-          </div>
+          <h2>Hello Guest, Create an account to play our wonderful quizzes</h2>
         )}
       </div>
     );
