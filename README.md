@@ -4,8 +4,9 @@ The given quizapp has been made in Go and React. This Readme is a walkthrough of
 ## Setup
 To setup the given project follow the instructions separately for each - 
 
-### React
+### Frontend : React 
      Download the project
+     In cmd navigate to the folder using command `cd react-app`
      Run `yarn install` to install all dependencies
      If no error is encountered then run `yarn start`
      
@@ -15,8 +16,9 @@ To setup the given project follow the instructions separately for each -
      Run 'npm install' to install all dependencies(if you get some warnings then ignore it) 
      If no error is encountered then run `npm start` it will start App on local server
      
-### Go
+### Backend: Go
      Download the project
+     In cmd navigate to Go Folder using command `cd go`
      Install the following libraries for it to run - 
      - "github.com/gin-contrib/cors"
      - "github.com/gin-gonic/gin"  
