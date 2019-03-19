@@ -31,7 +31,7 @@ class App extends Component {
             <nav className="navbar navbar-default">
               <div className="container-fluid">
                 <div className="navbar-header">
-                  <Link className="navbar-brand" to={'/'}>React App</Link>
+                  <Link className="navbar-brand" to={'/'}>Quiz App</Link>
                 </div>
                 <ul className="nav navbar-nav">
                   <li><Link to={'/'}>Home</Link></li>
