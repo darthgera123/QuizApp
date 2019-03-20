@@ -15,12 +15,21 @@ class App extends Component {
               <div className="container-fluid">
                 <div className="navbar-header">
                   <Link className="navbar-brand" to={'/'}>React App</Link>
+                
+                <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+                        <span className="icon-bar"></span>
+                        <span className="icon-bar"></span>
+                        <span className="icon-bar"></span>
+                </button>
                 </div>
+                <div className="collapse-navbar-collapse" id="myNav">
                 <ul className="nav navbar-nav">
-                  <li><Link to={'/'}>Home</Link></li>
+                  <li className="active"><Link to={'/'}>Home</Link></li>
+                  
                   <li><Link to={'/NewPerson'}>Sign-Up</Link></li>
                   <li><Link to={'/Login'}>Login</Link></li>
                 </ul>
+                </div>
               </div>
             </nav>
             <Switch>
