@@ -52,6 +52,11 @@ class Login extends Component {
     }
 
     render() {
+
+        if (JSON.parse(localStorage.getItem('user')).isloggedin) return (
+            <h1 align="center">You have successfully logged in</h1>
+        )
+
         return (
             <div className="App">
                 <header className="App-header">
@@ -59,9 +64,6 @@ class Login extends Component {
                 </header>
                 <br />
                 <br />
-                {JSON.parse(localStorage.getItem('user')).isloggedin &&
-                    <h1>You have successfully logged in</h1>
-                }
                 <div id="signup" className="formContainer container">
                     <form name="SignIn" onSubmit={this.handleSubmit}>
                         <div className="form-group">

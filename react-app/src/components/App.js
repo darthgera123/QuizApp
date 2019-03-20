@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import PlayQuiz from './PlayQuiz.js'
 import Home from './Home';
+import Login from './Login';
 
 import Leaderboard from './Leaderboard.js'
 
@@ -30,7 +31,7 @@ class App extends Component {
             <nav className="navbar navbar-default">
               <div className="container-fluid">
                 <div className="navbar-header">
-                  <Link className="navbar-brand" to={'/'}>React App</Link>
+                  <Link className="navbar-brand" to={'/'}>Quiz App</Link>
                 </div>
                 <ul className="nav navbar-nav">
                   <li><Link to={'/'}>Home</Link></li>
@@ -45,6 +46,7 @@ class App extends Component {
                  <Route exact path='/' component={Home} />
                  <Route exact path ='/PlayQuiz' component={PlayQuiz}/>
                  <Route exact path = '/Leaderboard' component={Leaderboard}/>
+                 <Route exact path='/Login' component={Login} />
             </Switch>
           </div>
         </Router>
