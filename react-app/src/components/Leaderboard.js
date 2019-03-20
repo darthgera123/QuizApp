@@ -11,7 +11,7 @@ class Leaderboard extends Component{
 
         }
         this.showTable = this.showTable.bind(this);
-        this.sortTable = this.sortTable.bind(this);
+        // this.sortTable = this.sortTable.bind(this);
     }
 
     componentDidMount() {
