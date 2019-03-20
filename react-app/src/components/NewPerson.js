@@ -113,7 +113,7 @@ class NewPerson extends Component {
         <div className="panel panel-default red">
           <FormErrors formErrors={this.state.formErrors} />
         </div>
-        <div className="formContainer">
+        <div className="formContainer container">
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label>Username</label>

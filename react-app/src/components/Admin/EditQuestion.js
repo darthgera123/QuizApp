@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ViewPeople.css';
+
 /* This is the edit question code. In this you basically populate the original querries and make an appropiate request */
 class EditQuestion extends Component {
     constructor() {

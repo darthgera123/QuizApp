@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ViewPeople.css';
+
 /* This is the leaderboard code. It automatically renders the overall leaderboard and you can render genre specific */
 class Leaderboard extends Component{
     constructor(){

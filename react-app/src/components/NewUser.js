@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import NewPerson from './NewPerson';
-import Home from './Home';
-import Login from './Login';
+import NewPerson from './NewPerson.js';
+import Home from './User/Home.js';
+import Login from './Login.js';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 /* This will be shown when localstorage is logged out. Its a basic navbar */
