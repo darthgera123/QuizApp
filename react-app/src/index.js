@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App';
-import Admin from './components/Admin'
+import App from './components/User/App';
+import Admin from './components/Admin/Admin';
 import NewUser from './components/NewUser';
 import registerServiceWorker from './registerServiceWorker';
 

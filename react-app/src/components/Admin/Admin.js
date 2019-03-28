@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import DeletePerson from './DeletePerson';
-import ViewPeople from './ViewPeople';
+import DeletePerson from './DeletePerson.js';
+import ViewPeople from './ViewPeople.js';
 import CreateQuestion from './CreateQuestion.js'
 import ViewQuestion from './ViewQuestion.js'
 import DeleteQuiz from './DeleteQuiz.js'
-import PlayQuiz from './PlayQuiz.js'
-import Home from './Home';
+import PlayQuiz from '../User/PlayQuiz.js'
+import Home from '../User/Home.js';
 import EditQuestion from './EditQuestion.js'
-import Leaderboard from './Leaderboard.js'
+import Leaderboard from '../User/Leaderboard.js'
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
