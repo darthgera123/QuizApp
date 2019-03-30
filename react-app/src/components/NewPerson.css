@@ -1,7 +1,42 @@
 .formContainer {
-  width: 200px
+  width: 350px;
+  margin: 10vh auto;
+  overflow: hidden;
+  border-radius: 7px;
+  padding: 0 0 10px;
+  box-shadow: 0 27px 55px 0 #00000033, 0 17px 17px 0 #00000015;
 }
 
-.red {
-  color: red;
+.formContainer h1 {
+  background: #337ab7;
+  color: #fff;
+  padding: 15px 20px;
+  text-align: center;
+  margin: 0;
+}
+
+.formContainer form {
+  padding: 20px 40px;
+}
+
+.formContainer .error, .formErrors {
+  width: 80%;
+  margin: 20px auto 0;
+  padding: 10px;
+  border: 1px solid #a94442;
+  color: #a94442;
+  background: #f2dede;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.formContainer .success {
+  width: 80%;
+  margin: 20px auto 0;
+  padding: 10px;
+  border: 1px solid #07500a;
+  color: #07500a;
+  background: #f2ffde;
+  border-radius: 5px;
+  text-align: left;
 }
