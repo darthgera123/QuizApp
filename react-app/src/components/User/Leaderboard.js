@@ -11,7 +11,7 @@ class Leaderboard extends Component{
 
         }
         this.showTable = this.showTable.bind(this);
-        this.sortTable = this.sortTable.bind(this);
+        // this.sortTable = this.sortTable.bind(this);
     }
 
     componentDidMount() {
@@ -22,8 +22,7 @@ class Leaderboard extends Component{
             .then(genres => this.setState({genres: genres}));
         fetch('http://127.0.0.1:8080/score/')
             .then(response => response.json())
-                .then(tables => this.setState({tables:tables}))
-                .then(this.setState(tables => {this.state.tables.sort((a,b) => (a.total - b.total))}))
+                .then(tables => this.setState({ tables: tables.sort((a, b) => (b.total - a.total)) }))
       }
 
     showTable(event){
@@ -32,24 +31,21 @@ class Leaderboard extends Component{
         {
             fetch('http://127.0.0.1:8080/score/')
             .then(response => response.json())
-                .then(tables => this.setState({tables:tables}))
-                .then(this.setState(tables => {this.state.tables.sort((a,b) => (a.total - b.total))})) 
+                .then(tables => this.setState({ tables: tables.sort((a, b) => (b.total - a.total)) }))
         }
         else{
             fetch('http://127.0.0.1:8080/score-genre/'+genre)
             .then(response => response.json())
-                .then(tables => this.setState({tables:tables}))
-                .then(this.setState(tables => {this.state.tables.sort((a,b) => (a.total - b.total))}))   
+                .then(tables => this.setState({ tables: tables.sort((a, b) => (b.total - a.total)) }))   
         }
         
     }
-    sortTable(event){
-        this.setState(prevState => {
-            this.state.tables.sort((a, b) => (b.total - a.total))
-        });
 
-
-    }
+    // sortTable(event){
+    //     this.setState(prevState => {
+    //         this.state.tables.sort((a, b) => (b.total - a.total))
+    //     });
+    // }
 
     render(){
         return(
@@ -68,7 +64,7 @@ class Leaderboard extends Component{
                 </select>
                 <br/>
                 <br/>
-                <button onClick = {(e) => this.sortTable(e)}>Sort</button>
+                {/* <button onClick = {(e) => this.sortTable(e)}>Sort</button> */}
                 <div className="container">
                 <table>
                     <thead className="bg-primary">
