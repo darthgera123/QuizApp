@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ViewPeople.css';
+
 /* This is the leaderboard code. It automatically renders the overall leaderboard and you can render genre specific */
 class Leaderboard extends Component{
     constructor(){
@@ -22,7 +22,7 @@ class Leaderboard extends Component{
             .then(genres => this.setState({genres: genres}));
         fetch('http://127.0.0.1:8080/score/')
             .then(response => response.json())
-            .then(tables => this.setState({ tables: tables.sort((a, b) => (b.total - a.total)) }))
+                .then(tables => this.setState({ tables: tables.sort((a, b) => (b.total - a.total)) }))
       }
 
     showTable(event){
@@ -31,18 +31,20 @@ class Leaderboard extends Component{
         {
             fetch('http://127.0.0.1:8080/score/')
             .then(response => response.json())
-            .then(tables => this.setState({ tables: tables.sort((a, b) => (b.total - a.total)) }))
+                .then(tables => this.setState({ tables: tables.sort((a, b) => (b.total - a.total)) }))
         }
         else{
             fetch('http://127.0.0.1:8080/score-genre/'+genre)
             .then(response => response.json())
-            .then(tables => this.setState({ tables: tables.sort((a, b) => (b.total - a.total)) }))
+                .then(tables => this.setState({ tables: tables.sort((a, b) => (b.total - a.total)) }))   
         }
         
     }
 
     // sortTable(event){
-    //     this.setState({table: this.state.tables.sort((a, b) => (b.total - a.total))});
+    //     this.setState(prevState => {
+    //         this.state.tables.sort((a, b) => (b.total - a.total))
+    //     });
     // }
 
     render(){

@@ -1,26 +1,5 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #222;
-  height: 70px;
-  padding: 5px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
 .formContainer {
-  padding-left: 500px;
-  padding-right: 500px;
-
+  width: 200px
 }
 
 .red {

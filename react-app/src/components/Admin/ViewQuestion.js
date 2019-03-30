@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ViewPeople.css';
+
 /* This is a view quiz component in which we also have added delete questions functionality */
 class ViewQuestions extends Component {
   constructor() {

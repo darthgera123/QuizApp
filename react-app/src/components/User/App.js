@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import PlayQuiz from './PlayQuiz.js'
-import Home from './Home';
-import Login from './Login';
+import Home from './Home.js';
+import Login from '../Login.js';
 
 import Leaderboard from './Leaderboard.js'
 
