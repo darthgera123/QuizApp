@@ -11,7 +11,7 @@ class App extends Component {
       <div>
         <Router>
           <div>
-            <nav className="navbar navbar-default">
+            <nav id="menu-bar" className="navbar navbar-default">
               <div className="container-fluid">
                 <div className="navbar-header">
                   <Link className="navbar-brand" to={'/'}>Quiz App</Link>

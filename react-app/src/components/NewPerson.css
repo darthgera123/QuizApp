@@ -40,3 +40,16 @@
   border-radius: 5px;
   text-align: left;
 }
+
+
+#menu-bar {
+  background: #337ab7;
+}
+
+#menu-bar a {
+  color: #fff;
+}
+
+#menu-bar .active a {
+  background: #004b6f;
+}
