@@ -16,9 +16,12 @@ class Home extends Component {
     const request = new Request(
       "http://127.0.0.1:8080/score-users/" + this.state.username
     );
-    fetch(request)
-      .then(response => response.json())
-      .then(quizzes => this.setState({ quizzes: quizzes }));
+    
+    if(this.state.username !== "") {
+      fetch(request)
+        .then(response => response.json())
+        .then(quizzes => this.setState({ quizzes: quizzes }));
+    }
     console.log(this.state.username);
   }
 
