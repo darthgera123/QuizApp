@@ -53,3 +53,11 @@
 #menu-bar .active a {
   background: #004b6f;
 }
+
+#menu-bar .navbar-right a {
+  padding: 8px 15px;
+}
+
+#menu-bar .navbar-right a b {
+  margin-right: 15px;
+}

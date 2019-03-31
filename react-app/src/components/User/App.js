@@ -44,7 +44,15 @@ class App extends Component {
                     <li><Link to={'/'}>Home</Link></li>
                     <li><Link to={'/PlayQuiz'}>Play Quiz</Link></li>
                     <li><Link to={'/Leaderboard'}>Leaderboard</Link></li>
-                    <li><Link to={'/'}><button className="btn btn-danger" onClick={this.HandleSignOut}>Sign Out</button></Link></li>
+                  </ul>
+
+                  <ul className="nav navbar-nav navbar-right">
+                    <li>
+                      <Link to={'/'}> 
+                        <b>{JSON.parse(localStorage.getItem('user')).username.toUpperCase()}</b>
+                        <button className="btn btn-danger" onClick={this.HandleSignOut}>Sign Out</button>
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </div>
