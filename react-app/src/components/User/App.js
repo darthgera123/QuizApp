@@ -28,18 +28,25 @@ class App extends Component {
       <div>
         <Router>
           <div>
-            <nav className="navbar navbar-default">
+            <nav id="menu-bar" className="navbar navbar-default">
               <div className="container-fluid">
                 <div className="navbar-header">
                   <Link className="navbar-brand" to={'/'}>Quiz App</Link>
-                </div>
-                <ul className="nav navbar-nav">
-                  <li><Link to={'/'}>Home</Link></li>
-                  <li><Link to={'/PlayQuiz'}>Play Quiz</Link></li>
-                  <li><Link to={'/Leaderboard'}>Leaderboard</Link></li>
-                  <li><Link to={'/'}><button className="btn btn-danger" onClick={this.HandleSignOut}>Sign Out</button></Link></li>
 
-                </ul>
+                  <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                  </button>
+                </div>
+                <div className="collapse-navbar-collapse" id="myNav">
+                  <ul className="nav navbar-nav">
+                    <li><Link to={'/'}>Home</Link></li>
+                    <li><Link to={'/PlayQuiz'}>Play Quiz</Link></li>
+                    <li><Link to={'/Leaderboard'}>Leaderboard</Link></li>
+                    <li><Link to={'/'}><button className="btn btn-danger" onClick={this.HandleSignOut}>Sign Out</button></Link></li>
+                  </ul>
+                </div>
               </div>
             </nav>
             <Switch>
