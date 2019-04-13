@@ -10,11 +10,15 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+	
+	<link rel="stylesheet" href="drop_nav_ss.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
-
       Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
@@ -26,6 +30,58 @@
       <title>Quiz App</title>
   </head>
   <body>
+
+	<div class="topnav" id="myTopnav">
+
+	<div class="col-xs-4 col-sm-4 col-lg-4 col-md-4">
+		<a href="#website_link">Company Logo</a>
+	</div>
+
+	<div class="col-xs-4 col-sm-8 col-lg-8 col-md-8 Right">
+
+ 		 <a href="#home" class="fa fa-home active ">  Home</a>
+ 		 <a href="#about" class="fa fa-bookmark">  About</a>
+  		<a href="#image" class="fa fa-image">  Image</a>
+  		<a href="#contact" class = "fa fa-phone-square">  Contact</a>
+
+ 		 <div class="dropdown">
+    			<button class="dropbtn">
+				<span class="fa fa-microphone"> Languages</span> 
+      				<i class=" fa fa-caret-down"></i>
+    			</button>
+    		<div class="dropdown-content">
+     			 <a href="#Hindi">Hindi</a>
+     			 <a href="#Gujarati">Gujarati</a>
+      			<a href="#French">French</a> 
+     		</div>
+	 </div> 
+
+	<div class="dropdown">
+    		<button class="dropbtn">
+			<span class="fa fa-money"> Payment</span>  
+      			<i class="fa fa-caret-down"></i>
+    		</button>
+    	<div class="dropdown-content">
+      		<a href="#Online">Online</a>
+      		<a href="#Offline">Offline</a>
+    	</div>
+  	</div> 
+
+
+  	<a href="#login" class="fa fa-sign-in ">  Login</a>
+  		
+	<a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+	</div>
+
+
+</div>
+
+
+
+<script src="drop_nav.js">
+</script>
+
+
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
@@ -33,10 +89,8 @@
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
-
       You can add webfonts, meta tags, or analytics to this file.
       The build step will place the bundled scripts into the <body> tag.
-
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
