@@ -31,24 +31,39 @@ class Admin extends Component {
       <div>
         <Router>
           <div>
-            <nav className="navbar navbar-default">
+            <nav id="menu-bar" className="navbar navbar-default">
               <div className="container-fluid">
                 <div className="navbar-header">
-                  <Link className="navbar-brand" to={'/'}>React App</Link>
-                </div>
-                <ul className="nav navbar-nav">
-                  <li><Link to={'/'}>Home</Link></li>
-                  <li><Link to={'/DeletePerson'}>Delete Person</Link></li>
-                  <li><Link to={'/ViewPeople'}>View People</Link></li>
-                  <li><Link to={'/CreateQuestion'}>Create Quiz</Link></li>
-                  <li><Link to={'/ViewQuestion'}>View Quiz</Link></li>
-                  <li><Link to={'/DeleteQuiz'}>Delete Quiz</Link></li>
-                  <li><Link to={'/PlayQuiz'}>Play Quiz</Link></li>
-                  <li><Link to={'/EditQuestion'}>Edit Question</Link></li>
-                  <li><Link to={'/Leaderboard'}>Leaderboard</Link></li>
-                  <li><Link to={'/'}><button className="btn btn-danger" onClick={this.HandleSignOut}>Sign Out</button></Link></li>
+                  <Link className="navbar-brand" to={'/'}>Quiz App</Link>
 
-                </ul>
+                  <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                  </button>
+                </div>
+                <div className="collapse-navbar-collapse" id="myNav">
+                  <ul className="nav navbar-nav">
+                    <li><Link to={'/'}>Home</Link></li>
+                    <li><Link to={'/DeletePerson'}>Delete Person</Link></li>
+                    <li><Link to={'/ViewPeople'}>View People</Link></li>
+                    <li><Link to={'/CreateQuestion'}>Create Quiz</Link></li>
+                    <li><Link to={'/ViewQuestion'}>View Quiz</Link></li>
+                    <li><Link to={'/DeleteQuiz'}>Delete Quiz</Link></li>
+                    <li><Link to={'/PlayQuiz'}>Play Quiz</Link></li>
+                    <li><Link to={'/EditQuestion'}>Edit Question</Link></li>
+                    <li><Link to={'/Leaderboard'}>Leaderboard</Link></li>
+                  </ul>
+
+                  <ul className="nav navbar-nav navbar-right">
+                    <li>
+                      <Link to={'/'}> 
+                        <b>{JSON.parse(localStorage.getItem('user')).username.toUpperCase()}</b>
+                        <button className="btn btn-danger" onClick={this.HandleSignOut}>Sign Out</button>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </nav>
             <Switch>

@@ -59,13 +59,13 @@ class Login extends Component {
 
         return (
             <div className="App">
-                <header className="App-header">
-                    <h1 className="App-title">Login User</h1>
-                </header>
-                <br />
-                <br />
-                <div id="signup" className="formContainer container">
-                    <form name="SignIn" onSubmit={this.handleSubmit}>
+                <div id="login" className="formContainer container">
+                    <h1>Login</h1>
+
+                    {this.state.submitted && 
+                        <div className="error">Login Failed: Check Your Credentials</div>}
+                    
+                    <form name="LogIn" onSubmit={this.handleSubmit}>
                         <div className="form-group">
                             <label>Username</label>
                             <input type="text" required className="form-control" name="username" value={this.state.username} onChange={this.handleUChange} />
@@ -74,10 +74,8 @@ class Login extends Component {
                             <label>Password</label>
                             <input type="password" required className="form-control" name="password" value={this.state.password} onChange={this.handlePChange} />
                         </div>
-                        <button type="submit" className="btn btn-success">Sign In</button>
+                        <button type="submit" className="btn btn-primary">Sign In</button>
                     </form>
-                    {this.state.submitted &&
-                        <h4 className="text-danger">Login Failed   Check Your Credentials</h4>}
                 </div>
 
             </div>
